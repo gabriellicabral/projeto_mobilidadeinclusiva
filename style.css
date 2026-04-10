@@ -1,0 +1,318 @@
+/* ================= RESET E BASE ================= */
+
+/* Remove margens e preenchimentos padrão do navegador para evitar espaços indesejados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho dos elementos */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9; /* Cor de fundo leve (cinza azulado) */
+  color: #1f2937; /* Cor do texto principal */
+}
+
+/* Define a largura máxima do conteúdo e o centraliza na tela */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* Garante que o conteúdo principal ocupe quase toda a altura da tela */
+main {
+  min-height: calc(100vh - 140px);
+}
+
+
+/* ================= CONTROLE DE TELAS ================= */
+/* Esconde todas as seções e mostra apenas a que tiver .tela_ativa */
+main section {
+  display: none;
+  padding: 40px 0;
+}
+
+/* Mostra apenas a seção que tiver a classe 'tela_ativa' via JavaScript */
+main section.tela_ativa {
+  display: block;
+}
+
+/* ================= CABEÇALHO ================= */
+
+.cabecalho {
+  background: #1e3a8a; /* Azul escuro principal */
+  color: white;
+  min-height: 80px;
+  padding: 12px 4%;
+  display: flex; /* Alinha logo e menu lado a lado */
+  align-items: center;
+  justify-content: space-between; /* Empurra a logo para um lado e o menu para o outro */
+}
+
+.cabecalho_titulo_img {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre a imagem da logo e o texto */
+}
+
+.logo_cabecalho {
+  width: 44px;
+}
+
+.cabecalho_nav a {
+  color: white;
+  text-decoration: none; /* Remove o sublinhado dos links */
+  margin-left: 14px;
+  font-weight: 500;
+}
+
+/* ================= RODAPÉ ================= */
+
+.rodape {
+  background: #1e3a8a;
+  color: white;
+  min-height: 60px;
+  display: grid;
+  place-items: center; /* Centraliza o texto do rodapé perfeitamente */
+}
+/* ================= BOTÕES PADRONIZADOS ================= */
+.botao_home_cadastro,
+.botao_home_login,
+.botao_login
+.botao_salvar_cadastro {
+  background: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.botao_salvar_cadastro, .botao_login{
+  background: #4F46E5;
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%; /* Botão ocupa a largura total do formulário */
+
+}
+
+.botao_home_cadastro:hover, .botao_login:hover, .botao_salvar_cadastro:hover {
+  opacity: 0.9;
+}
+
+/* ================= HOME (CENTRALIZADA) ================= */
+
+.secao_home.tela_ativa {
+  min-height: calc(100vh - 140px); 
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-direction: column; 
+}
+
+.secao_home .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.secao_home {
+  text-align: center;
+}
+
+.secao_home h2 {
+  font-size: 2.4rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.secao_home p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* ================= SOBRE ================= */
+
+.secao_sobre.tela_ativa {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.secao_sobre h2 {
+  margin-bottom: 30px;
+  color: #1e3a8a;
+  font-size: 2rem;
+}
+
+.secao_sobre .container .cards{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ================= CARDS SEÇÃO SOBRE ================= */
+
+  .card {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= FORMULÁRIOS ================= */
+
+/* Estilo das caixas brancas onde ficam os formulários */
+.caixa_formulario,
+.caixa_login
+ {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #e2e8f0;
+  width: min(900px, 92%);
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.caixa_formulario{
+    margin-top: 60px;
+}
+
+.caixa_login {
+  max-width: 500px;
+}
+
+/* Coloca os campos de cadastro em duas colunas no desktop */
+.formulario_cadastro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Estilo padrão para todos os campos de entrada de texto */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+/*================= LOGIN ================= */
+
+.formulario_login{
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Faz o formulário ocupar a largura da caixa */
+  gap: 1.2rem;  /* AQUI está o espaço entre CPF, Senha e Botão */
+}
+
+.caixa_login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 150px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+
+}
+
+
+
+/* ================= ACESSIBILIDADE ================= */
+
+/* Botão flutuante do bonequinho da acessibilidade */
+.acessibilidade_atalho {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #22c55e;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 999; /* Garante que fique acima de tudo */
+}
+
+/* Painel que abre com as opções de acessibilidade */
+.acessibilidade_painel {
+  position: fixed;
+  bottom: 80px;
+  left: 16px;
+  width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  display: none; /* Fica escondido até o clique */
+  gap: 8px;
+}
+
+.acessibilidade_painel button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #1e3a8a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.acessibilidade_painel.aberto {
+  display: grid; /* Mostra o painel quando ativo */
+}
+
+/* Regras aplicadas quando os botões de acessibilidade são clicados */
+body.fonte-grande {
+  font-size: 1.2rem;
+}
+
+body.alto-contraste {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste * {
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border-color: rgb(51, 0, 255) !important;
+}
+
+body.modo-daltonismo {
+  filter: saturate(1.8) contrast(1.1);
+}
+
+
