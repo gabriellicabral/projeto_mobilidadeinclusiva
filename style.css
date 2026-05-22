@@ -1,38 +1,35 @@
 /* ================= RESET E BASE ================= */
 
-/* Remove margens e preenchimentos padrão do navegador para evitar espaços indesejados */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho dos elementos */
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: #f1f5f9; /* Cor de fundo leve (cinza azulado) */
-  color: #1f2937; /* Cor do texto principal */
+  background: #f1f5f9;
+  color: #1f2937;
+  line-height: 1.5;
+  font-size: 15px;
 }
 
-/* Define a largura máxima do conteúdo e o centraliza na tela */
 .container {
   width: min(1100px, 92%);
   margin: 0 auto;
 }
 
-/* Garante que o conteúdo principal ocupe quase toda a altura da tela */
 main {
   min-height: calc(100vh - 140px);
 }
 
-
 /* ================= CONTROLE DE TELAS ================= */
-/* Esconde todas as seções e mostra apenas a que tiver .tela_ativa */
+
 main section {
   display: none;
-  padding: 40px 0;
+  padding: 45px 0;
 }
 
-/* Mostra apenas a seção que tiver a classe 'tela_ativa' via JavaScript */
 main section.tela_ativa {
   display: block;
 }
@@ -40,30 +37,44 @@ main section.tela_ativa {
 /* ================= CABEÇALHO ================= */
 
 .cabecalho {
-  background: #1e3a8a; /* Azul escuro principal */
+  background: #1e3a8a;
   color: white;
-  min-height: 80px;
+  min-height: 75px;
   padding: 12px 4%;
-  display: flex; /* Alinha logo e menu lado a lado */
+  display: flex;
   align-items: center;
-  justify-content: space-between; /* Empurra a logo para um lado e o menu para o outro */
+  justify-content: space-between;
 }
 
 .cabecalho_titulo_img {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espaço entre a imagem da logo e o texto */
+  gap: 8px;
 }
 
 .logo_cabecalho {
-  width: 44px;
+  width: 40px;
+}
+
+.cabecalho h1 {
+  font-size: 1.2rem;
+}
+
+.cabecalho_nav {
+  display: flex;
+  gap: 14px;
 }
 
 .cabecalho_nav a {
   color: white;
-  text-decoration: none; /* Remove o sublinhado dos links */
-  margin-left: 14px;
+  text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+.cabecalho_nav a:hover {
+  opacity: 0.8;
 }
 
 /* ================= RODAPÉ ================= */
@@ -71,73 +82,79 @@ main section.tela_ativa {
 .rodape {
   background: #1e3a8a;
   color: white;
-  min-height: 60px;
+  min-height: 55px;
   display: grid;
-  place-items: center; /* Centraliza o texto do rodapé perfeitamente */
+  place-items: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
 }
-/* ================= BOTÕES PADRONIZADOS ================= */
+
+/* ================= BOTÕES ================= */
+
 .botao_home_cadastro,
 .botao_home_login,
-.botao_login
-.botao_salvar_cadastro {
+.botao_seguir,
+.botao_login,
+.botao_plano,
+.botao_enviar_curriculo {
   background: #4F46E5;
   color: white;
   border: none;
   border-radius: 50px;
-  padding: 14px 36px;
+  padding: 12px 28px;
+  font-weight: bold;
+  font-size: 0.92rem;
+  cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
+  transition: 0.3s ease;
   display: inline-block;
-  transition: opacity 0.2s;
 }
 
-.botao_salvar_cadastro, .botao_login{
-  background: #4F46E5;
-  color: white;
-  padding: 15px 40px;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%; /* Botão ocupa a largura total do formulário */
-
+.botao_home_cadastro:hover,
+.botao_home_login:hover,
+.botao_seguir:hover,
+.botao_login:hover,
+.botao_plano:hover,
+.botao_enviar_curriculo:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
 }
 
-.botao_home_cadastro:hover, .botao_login:hover, .botao_salvar_cadastro:hover {
-  opacity: 0.9;
+.botao_seguir,
+.botao_login,
+.botao_enviar_curriculo {
+  width: 100%;
 }
 
-/* ================= HOME (CENTRALIZADA) ================= */
+/* ================= HOME ================= */
 
 .secao_home.tela_ativa {
-  min-height: calc(100vh - 140px); 
+  min-height: calc(100vh - 140px);
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-  flex-direction: column; 
-}
-
-.secao_home .container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
 }
 
 .secao_home {
   text-align: center;
 }
 
+.secao_home .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .secao_home h2 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #1e3a8a;
-  margin-bottom: 20px;
 }
 
 .secao_home p {
-  max-width: 700px;
-  margin: 0 auto 30px;
+  max-width: 650px;
+  font-size: 0.95rem;
 }
 
 /* ================= SOBRE ================= */
@@ -150,169 +167,381 @@ main section.tela_ativa {
   text-align: center;
 }
 
-.secao_sobre h2 {
-  margin-bottom: 30px;
+.secao_sobre h2,
+.secao_planos h2,
+.secao_trabalhe_conosco h2 {
   color: #1e3a8a;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  margin-bottom: 22px;
 }
 
-.secao_sobre .container .cards{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* ================= CARDS SEÇÃO SOBRE ================= */
-
-  .card {
+.secao_sobre .cards,
+.secao_planos .cards {
   display: flex;
-  gap: 20px;
-  flex-direction: column;
-  background: #ffffff;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ================= CARDS ================= */
+
+.card {
+  background: white;
   border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1 1 260px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+}
+
+.card p,
+.card li {
+  font-size: 0.92rem;
+}
+
+.secao_planos .card ul {
+  list-style: none;
+  text-align: left;
+}
+
+.secao_planos .card li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
+
+.secao_planos .card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #5ce1e6;
+}
+
+.valores {
+  color: #1E3A8A;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 /* ================= FORMULÁRIOS ================= */
 
-/* Estilo das caixas brancas onde ficam os formulários */
 .caixa_formulario,
-.caixa_login
- {
+.caixa_login,
+.formulario_informacoes_usuario,
+.form_trabalhe_conosco {
   background: white;
-  border-radius: 16px;
-  padding: 32px;
-  border: 1px solid #e2e8f0;
-  width: min(900px, 92%);
-  margin: 0 auto;
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.caixa_formulario{
-    margin-top: 60px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  width: min(850px, 100%);
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .caixa_login {
-  max-width: 500px;
+  max-width: 400px;
 }
 
-/* Coloca os campos de cadastro em duas colunas no desktop */
-.formulario_cadastro {
+.formulario_cadastro,
+.formulario_informacoes_usuario {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
+}
+
+.formulario_login,
+.form_trabalhe_conosco {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 label {
-  font-weight: 500;
-  margin-bottom: 4px;
-  display: block;
+  font-weight: 600;
+  margin-bottom: -4px;
+  font-size: 0.92rem;
 }
 
-/* Estilo padrão para todos os campos de entrada de texto */
 input,
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 11px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
+  font-size: 0.92rem;
+  background: #f8fafc;
+  transition: 0.3s ease;
+  outline: none;
 }
 
-/*================= LOGIN ================= */
-
-.formulario_login{
-  display: flex;
-  flex-direction: column;
-  width: 100%; /* Faz o formulário ocupar a largura da caixa */
-  gap: 1.2rem;  /* AQUI está o espaço entre CPF, Senha e Botão */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  background: white;
 }
 
-.caixa_login{
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ================= ÁREA DO USUÁRIO ================= */
+
+.secao_usuario .container,
+.secao_trabalhe_conosco .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-  padding: 2.5rem;
-
 }
 
+/* ================= LOGIN ================= */
 
+.caixa_login {
+  margin-top: 60px;
+}
 
 /* ================= ACESSIBILIDADE ================= */
 
-/* Botão flutuante do bonequinho da acessibilidade */
 .acessibilidade_atalho {
   position: fixed;
   bottom: 16px;
   left: 16px;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: none;
   background: #22c55e;
   color: white;
-  font-size: 26px;
+  font-size: 22px;
   cursor: pointer;
-  z-index: 999; /* Garante que fique acima de tudo */
+  z-index: 999;
 }
 
-/* Painel que abre com as opções de acessibilidade */
 .acessibilidade_painel {
   position: fixed;
-  bottom: 80px;
+  bottom: 75px;
   left: 16px;
-  width: 260px;
-  background: #fff;
+  width: 240px;
+  background: white;
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #e2e8f0;
-  display: none; /* Fica escondido até o clique */
+  display: none;
   gap: 8px;
 }
 
+.acessibilidade_painel.aberto {
+  display: grid;
+}
+
 .acessibilidade_painel button {
-  padding: 10px;
+  padding: 9px;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border: none;
   background: #1e3a8a;
   color: white;
   font-weight: bold;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
-.acessibilidade_painel.aberto {
-  display: grid; /* Mostra o painel quando ativo */
-}
+/* ================= MODOS DE ACESSIBILIDADE ================= */
 
-/* Regras aplicadas quando os botões de acessibilidade são clicados */
+/* Aumenta TODOS os textos do site */
 body.fonte-grande {
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
+/* Faz todos os elementos herdarem o aumento */
+body.fonte-grande h1 {
+  font-size: 2.2rem;
+}
+
+body.fonte-grande h2 {
+  font-size: 2rem;
+}
+
+body.fonte-grande h3 {
+  font-size: 1.6rem;
+}
+
+body.fonte-grande p,
+body.fonte-grande a,
+body.fonte-grande li,
+body.fonte-grande label,
+body.fonte-grande input,
+body.fonte-grande textarea,
+body.fonte-grande select,
+body.fonte-grande button {
+  font-size: 1.1rem;
+}
+
+/* Também aumenta os botões */
+body.fonte-grande .botao_home_cadastro,
+body.fonte-grande .botao_home_login,
+body.fonte-grande .botao_seguir,
+body.fonte-grande .botao_login,
+body.fonte-grande .botao_plano,
+body.fonte-grande .botao_enviar_curriculo {
+  padding: 15px 34px;
+}
+
+/* Alto contraste */
 body.alto-contraste {
   background: #000;
   color: #fff;
 }
 
+/* Aplica contraste em todos os elementos */
 body.alto-contraste * {
   background: #1a1a1a !important;
   color: #fff !important;
-  border-color: rgb(51, 0, 255) !important;
+  border-color: #4338ca !important;
 }
 
+/* Mantém botões destacados */
+body.alto-contraste button,
+body.alto-contraste .botao_home_cadastro,
+body.alto-contraste .botao_home_login,
+body.alto-contraste .botao_seguir,
+body.alto-contraste .botao_login,
+body.alto-contraste .botao_plano,
+body.alto-contraste .botao_enviar_curriculo {
+  background: #4338ca !important;
+  color: white !important;
+}
+
+/* Daltonismo */
 body.modo-daltonismo {
   filter: saturate(1.8) contrast(1.1);
 }
 
+/* ================= BOTÃO DE ACESSIBILIDADE ================= */
 
+.acessibilidade_atalho {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #22c55e;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.acessibilidade_atalho:hover {
+  transform: scale(1.08);
+}
+
+/* Painel */
+.acessibilidade_painel {
+  position: fixed;
+  bottom: 80px;
+  left: 16px;
+  width: 250px;
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  display: none;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.acessibilidade_painel.aberto {
+  display: grid;
+}
+
+/* Botões do painel */
+.acessibilidade_painel button {
+  padding: 11px;
+  border-radius: 8px;
+  border: none;
+  background: #1e3a8a;
+  color: white;
+  font-weight: bold;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.acessibilidade_painel button:hover {
+  background: #4338ca;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 860px) {
+
+  .cabecalho {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .cabecalho_nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .formulario_cadastro,
+  .formulario_informacoes_usuario {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .caixa_formulario,
+  .caixa_login,
+  .form_trabalhe_conosco {
+    padding: 22px;
+  }
+
+  .secao_home h2 {
+    font-size: 1.7rem;
+  }
+
+  .secao_sobre h2,
+  .secao_planos h2,
+  .secao_trabalhe_conosco h2 {
+    font-size: 1.5rem;
+  }
+
+  .home_botoes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}

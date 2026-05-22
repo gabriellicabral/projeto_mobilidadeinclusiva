@@ -10,7 +10,7 @@
 */
 
 // =========================
-// TROCA DE TELAS
+// 1) TROCA DE TELAS
 // =========================
 
 // Objeto que mapeia o nome da página para a sua classe CSS no HTML
@@ -63,7 +63,7 @@ window.addEventListener('hashchange', abrirTelaPelaHash);
 abrirTelaPelaHash();
 
 // =========================
-//  CADASTRO + CEP
+// 2) CADASTRO + CEP
 // =========================
 
 const formCadastro = document.querySelector('.formulario_cadastro');
@@ -127,20 +127,68 @@ formCadastro?.addEventListener('submit', (evento) => {
 });
 
 // =========================
-//  PLANOS(THAMYRIS)
+// 3) PLANOS
 // =========================
 
+const botoesPlano = document.querySelectorAll('.botao_plano');
+
+// Salva qual plano o usuário escolheu e manda para o Login
+botoesPlano.forEach((botao) => {
+  botao.addEventListener('click', () => {
+    const cadastro = JSON.parse(localStorage.getItem('cadastro_mobilidade') || '{}');
+
+    if (!cadastro.cpf || !cadastro.senha) {
+      alert('Faça o cadastro antes de escolher o plano.');
+      abrirTela('cadastro');
+      return;
+    }
+
+    cadastro.plano = botao.dataset.plano;
+    localStorage.setItem('cadastro_mobilidade', JSON.stringify(cadastro));
+
+    alert(`Plano ${cadastro.plano} selecionado!`);
+    abrirTela('login');
+  });
+});
 
 // =========================
-//  LOGIN 
+// 4) TRABALHE CONOSCO
 // =========================
 
+// Seleciona o formulário pelo nome da classe
+const formularioTrabalheConosco = document.querySelector('.form_trabalhe_conosco');
 
+// Adiciona um evento de envio no formulário
+formularioTrabalheConosco.addEventListener('submit', function(event) {
 
+  // Impede o envio real do formulário
+  event.preventDefault();
 
-// Valida se o CPF e Senha batem com o que foi cadastrado
+  // Exibe a mensagem de sucesso
+  alert('Currículo enviado com sucesso! Em breve nossa equipe retornará com a resposta. Agradecemos o interesse em fazer parte da nossa equipe!');
+
+});
+
+// =========================
+// 5) LOGIN + ÁREA USUÁRIO
+// =========================
+
 const formLogin = document.querySelector('.formulario_login');
 
+// Função que joga os dados do LocalStorage para os inputs da tela de perfil
+function preencherAreaUsuario(cadastro) {
+  document.getElementById('uNome').value = cadastro.nome || '';
+  document.getElementById('uCpf').value = cadastro.cpf || '';
+  document.getElementById('uCep').value = cadastro.cep || '';
+  document.getElementById('uEndereco').value = cadastro.endereco || '';
+  document.getElementById('uPlano').value = cadastro.plano || '';
+  document.getElementById('uNomePassageiro').value = cadastro.nomePassageiro || '';
+  document.getElementById('uDeficiencia').value = cadastro.deficiencia || '';
+  document.getElementById('uNecessidades').value = cadastro.necessidades || '';
+  document.getElementById('uCadeira').value = cadastro.cadeira || '';
+}
+
+// Valida se o CPF e Senha batem com o que foi cadastrado
 formLogin?.addEventListener('submit', (evento) => {
   evento.preventDefault();
 
@@ -157,22 +205,7 @@ formLogin?.addEventListener('submit', (evento) => {
 });
 
 // =========================
-//  ÁREA DO USUÁRIO(LUIZ)
-// =========================
-
-
-
-// =========================
-//  TRABALHE CONOSCO (BRUNA)
-// =========================
-
-
-
-
-
-
-// =========================
-//  ACESSIBILIDADE
+// 6) ACESSIBILIDADE
 // =========================
 
 const botaoAcessibilidade = document.getElementById('botao_acessibilidade');

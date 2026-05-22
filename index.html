@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -167,23 +166,62 @@
               </select>
             </div>
 
-            <button type="submit" class="botao_salvar_cadastro">
+            <button type="submit" class="botao_seguir">
               Salvar cadastro e ir para planos
             </button>
           </form>
         </div>
       </section>
-<!-- =========================
-       SEÇÃO PLANOS(THAMYRIS)
+      <!-- =========================
+           SEÇÃO PLANOS
      =========================-->
-
-
       <section class="secao_planos">
         <div class="container">
-          <h2>Planos</h2>
-          </div>
-      </section>
+          <h2>Escolha seu plano</h2>
+          <p>Cadastro concluído. Agora selecione um plano para continuar.</p>
 
+          <div class="cards">
+            <article class="card">
+              <h3>Básico</h3>
+              <ul>
+                <li>Pagamento por corrida</li>
+                <li>Motoristas verificados</li>
+                <li>Suporte via Chat</li>
+              </ul>
+              <p class="valores">R$ 15,50 por mês</p>
+              <button class="botao_plano" data-plano="Básico">
+                Selecionar
+              </button>
+            </article>
+
+            <article class="card">
+              <h3>Escolar</h3>
+              <ul>
+                <li>Uso diário escolar</li>
+                <li>Prioridade de corrida</li>
+                <li>Suporte 24/7</li>
+              </ul>
+              <p class="valores">R$ 25,50 por mês</p>
+              <button class="botao_plano" data-plano="Escolar">
+                Selecionar
+              </button>
+            </article>
+
+            <article class="card">
+              <h3>Premium</h3>
+              <ul>
+                <li>Atendimento prioritário</li>
+                <li>Corridas Ilimitadas</li>
+                <li>Acesso de emergência</li>
+              </ul>
+              <p class="valores">R$ 30,00 por mês</p>
+              <button class="botao_plano" data-plano="Premium">
+                Selecionar
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
       <!-- =========================
            SEÇÃO LOGIN
      =========================-->
@@ -201,28 +239,131 @@
           </form>
         </div>
       </section>
-  <!--======================================
-                SEÇÃO ÁREA DO USUÁRIO(LUIZ)
-        ====================================== -->    
-
+      <!--======================================
+                SEÇÃO ÁREA DO USUÁRIO
+        ====================================== -->
       <section class="secao_usuario">
         <div class="container">
           <h2>Área do Usuário</h2>
-          </div>
+          <p>Informações salvas (somente leitura)</p>
+
+          <form class="formulario_informacoes_usuario">
+            <div>
+              <h3>Responsável</h3>
+              <label>Nome</label>
+              <input id="uNome" disabled />
+              <label>CPF</label>
+              <input id="uCpf" disabled />
+              <label>CEP</label>
+              <input id="uCep" disabled />
+              <label>Endereço</label>
+              <input id="uEndereco" disabled />
+              <label>Plano</label>
+              <input id="uPlano" disabled />
+            </div>
+
+            <div>
+              <h3>Passageiro</h3>
+              <label>Nome</label>
+              <input id="uNomePassageiro" disabled />
+              <label>Deficiência</label>
+              <input id="uDeficiencia" disabled />
+              <label>Necessidades</label>
+              <textarea id="uNecessidades" disabled></textarea>
+              <label>Cadeira de rodas?</label>
+              <input id="uCadeira" disabled />
+            </div>
+          </form>
+        </div>
       </section>
-
-
-   <!-- =====================================
-           SEÇÃO TRABALHE CONOSCO (BRUNA)
-     ===================================== -->   
-
+      <!-- =====================================
+           SEÇÃO TRABALHE CONOSCO
+     ===================================== -->
       <section class="secao_trabalhe_conosco">
-        <div class="container">
-          <h2>Trabalhe Conosco</h2>
-          </div>
-      </section>
-    </main>
+  <div class="container">
+    <h2>Trabalhe Conosco</h2>
 
+    <form action="" class="form_trabalhe_conosco">
+
+      <!-- Nome -->
+      <label for="nome" class="rotulo">Nome Completo:</label>
+      <input 
+        type="text" 
+        placeholder="Digite seu nome completo" 
+        id="nome"
+        name="nome"
+        required
+        minlength="5"
+        maxlength="100"
+      >
+
+      <!-- Email -->
+      <label for="email" class="rotulo">E-mail:</label>
+      <input 
+        type="email" 
+        placeholder="seu.email@exemplo.com" 
+        id="email"
+        name="email"
+        required
+      >
+
+      <!-- Telefone -->
+      <label for="telefone" class="rotulo">Telefone:</label>
+      <input 
+        type="tel" 
+        placeholder="(XX) XXXXX-XXXX" 
+        id="telefone"
+        name="telefone"
+        required
+        pattern="\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}"
+      >
+
+      <!-- Área -->
+      <label for="area-de-interesse" class="rotulo">Área de Interesse:</label>
+      <select 
+        id="area-de-interesse"
+        name="area-de-interesse"
+        required
+      >
+        <option disabled selected value="">Selecione uma opção</option>
+        <option value="desenvolvimento">Desenvolvimento</option>
+        <option value="design">Design</option>
+        <option value="marketing">Marketing</option>
+        <option value="suporte">Suporte ao Cliente</option>
+        <option value="RH">Recursos Humanos</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <!-- Mensagem -->
+      <label for="mensagem" class="rotulo">Mensagem:</label>
+      <textarea 
+        id="mensagem" 
+        name="mensagem"
+        placeholder="Digite sua mensagem"
+        required
+        minlength="10"
+        maxlength="500"
+      ></textarea>
+
+      <!-- Currículo -->
+      <label for="curriculo">Anexar Currículo:</label>
+      <input 
+        type="file" 
+        id="curriculo"
+        name="curriculo"
+        required
+        accept=".pdf,.doc,.docx"
+      >
+
+      <!-- Botão -->
+      <button type="submit" class="botao_enviar_curriculo">
+        Enviar
+      </button>
+
+    </form>
+  </div>
+</section>
+    </main>
 
     <!-- =========================
            RODAPÉ
@@ -234,7 +375,7 @@
     <!-- ==================================
             BOTÃO ACESSIBILIDADE
      ==================================-->
-    <button type="button" id="botao_acessibilidade" class="acessibilidade_atalho">♿</button>
+    <button id="botao_acessibilidade" class="acessibilidade_atalho">♿</button>
 
     <div id="painel_acessibilidade" class="acessibilidade_painel">
       <h3>Acessibilidade</h3>
